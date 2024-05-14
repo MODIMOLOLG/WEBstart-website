@@ -1,0 +1,536 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap');
+body{
+    margin: 0;
+    font-family: 'Lora', serif;
+    overflow-y: scroll;
+}
+.topbar{
+    position: fixed;
+    top: 0;
+    z-index: 200;
+    width: 100%;
+    height: 3rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 15px rgb(0 0 0 / 20%);
+    backdrop-filter: blur(10px);
+    background-blend-mode: overlay;
+    animation-name: TopbarAnim;
+    animation-duration: 2.5s;
+    display: flex;
+}
+.TBbtn{
+    height: 2.5rem;
+    width: 2.5rem;
+    margin: 0.25rem;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgb(0 0 0 / 20%);
+    transition: 200ms;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    align-items:center;
+    justify-content:center;
+}
+.Logobtn{
+    height: 100%;
+    width: calc(100% - 6rem);
+}
+
+.btn:hover{
+    background-color: rgba(255, 255, 255, 0.7);
+    transform: scale(1.05);
+}
+.btn:active{
+    transform: scale(0.9);
+}
+
+@keyframes TopbarAnim {
+    0% {top: -5rem;}
+    60% {top: -5rem;}
+    100% {top: 0;}
+}
+
+
+
+.SideBar{
+    z-index: 150;
+    position: fixed;
+    top: 2rem;
+    height: calc(100vh - 5rem);
+    width: 20rem;
+    margin-top: 2rem;
+    margin-left: -22rem;
+    padding-bottom: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 2rem;
+    box-shadow: 0 10px 15px rgb(0 0 0 / 20%);
+    backdrop-filter: blur(30px);
+    background-blend-mode: overlay;   
+    transition: 500ms;
+    overflow: hidden;
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.SElement{
+    margin: 0.5rem 0.5rem 0 0.5rem;
+    height: 100vh;
+
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px rgb(0 0 0 / 20%);
+    backdrop-filter: blur(30px);
+    background-blend-mode: overlay;   
+    overflow: hidden;
+
+    cursor: pointer;
+    transition: 300ms;
+}
+.btmm{
+    border-radius: 1rem 1rem 1.5rem 1.5rem;
+}
+.topp{
+    border-radius: 1.5rem 1.5rem 1rem 1rem;
+}
+.Simg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 300ms;
+    transform: scale(1.2);
+}
+.Etext{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    color: #333333;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    word-break: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+    line-height: 1.2;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    height: 100%;
+    width: 100%;
+    transition: 300ms;
+}
+.SElement:active{
+    transform: scale(0.9);
+}
+.SElement:hover .Etext{
+    transform: scale(1.1);
+}
+.SElement:hover .Simg{
+    transform: scale(1);
+}
+
+
+.globalBlur{
+    z-index: 140;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transition: 500ms;
+    pointer-events: none;
+    background-blend-mode: overlay;   
+}
+
+.AllContainer{
+    margin: auto;
+    margin-top: 4rem;
+    max-width: 50rem;
+    width: calc(100% - 2rem);
+    opacity: 0%;
+    transition: 1s;
+    display: none;
+    flex-direction: column;
+}
+.bg{
+    opacity: 20%;
+    position: fixed;
+    top: 0;
+    z-index: -99;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    transition: 1s;
+}
+
+.LogoHandler{
+    z-index: 110;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    max-width: 40rem;
+    height: 100%;
+    margin: 0 auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    pointer-events: none;
+}
+.MainLogo{
+    position: absolute;
+    top: 5rem;
+    width: 100%;
+    animation-name: LogoAnim;
+    animation-duration: 2.5s;
+    transition: 1s;
+    transform: scale(0.75);
+}
+.LogoWords{
+    position: absolute;
+    top: 5rem;
+    width: 100%;
+    animation-name: WordsAnim;
+    animation-duration: 2.5s;
+    transition: 1s;
+}
+@keyframes LogoAnim {
+    0% {transform: scale(0);
+        top: 25%;}
+    20% {transform: scale(1.1);}
+    35% {transform: scale(1);}
+    60% {transform: rotate(180deg);
+        top: 25%;}
+    100% {transform: rotate(360deg) scale(0.75);
+        top: 5rem}
+}
+@keyframes WordsAnim {
+    0% {transform: scale(1.1);
+        opacity: 0%;}
+    80% {transform: scale(1.1);
+        opacity: 0%;}
+    100% {transform: scale(1);
+        opacity: 100%;}
+}
+
+.PageContainer{
+    padding: 0.01rem;
+    margin-bottom: 1rem;
+    border-radius: 2rem;
+    background-color: rgba(236, 236, 236, 0.3);
+    box-shadow: 0 10px 15px rgb(0 0 0 / 20%);
+    backdrop-filter: blur(30px);
+    background-blend-mode: overlay;
+    display: flex;
+    flex-direction: column;
+}
+.first{
+    padding-top: min(55vw, 25rem);
+}
+.ItemsContainer{
+    margin: 0.2rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 1rem;
+    padding: 0.5rem 0;
+}
+.top{
+    border-radius: 1.85rem 1.85em 1rem 1rem;
+}
+.btm{
+    border-radius: 1rem 1rem 1.85rem 1.85em;
+}
+
+.TopperImg{
+    width: calc(100% + 0.4rem);
+    box-shadow: 0 0px 1.5rem rgb(221, 221, 221);
+    height: 15rem;
+    margin: -0.2rem;
+    margin-top: -0.5rem;
+    border-radius: 1.5rem;
+    object-fit: cover;
+}
+p{
+    margin: 0.5rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.02rem;
+    color: #333333;
+    font-weight: 500;
+}
+ol{
+    margin: 0.5rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.02rem;
+    color: #333333;
+    font-weight: 500;}
+h1{
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0.8rem 1.2rem 0 1.8rem;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+}
+a{
+
+    margin: 0.8rem 1.2rem 0 1.8rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    font-weight: 700;
+}
+.icon{
+    height: auto;
+    width: auto;
+    font-size: 2rem;
+}
+
+.ImageGallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.ImageCard{
+    box-shadow: 0 10px 15px rgba(52, 52, 52, 0.5);
+    margin: 0.5rem;
+    width: 9rem;
+    height: 12rem;
+    border-radius: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: 300ms;
+    cursor: pointer;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.ImagePicture{
+    width: 9rem;
+    height: 12rem;
+    object-fit: cover;
+    transition: 300ms;
+    transform: scale(1.1);
+}
+.infoname{
+    position: absolute;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 0.05rem;
+    left: 0;
+    top: 0;
+    margin: 0.5rem;  
+    font-size: 1.3rem;
+    text-shadow: 0 0 3px rgb(0, 0, 0);
+    color: white; 
+    transition: 300ms; 
+    opacity: 0%;
+}
+.inforole{
+    text-align: right;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 0.5rem;  
+    filter: drop-shadow(0 0 3px rgb(0, 0, 0));
+    transition: 300ms;
+    opacity: 0%;
+}
+.ImageCard:hover{
+    transform: scale(1.3);
+    z-index: 20;
+}
+.ImageCard:hover .ImagePicture{
+    filter: brightness(70%);
+    transform: scale(1);
+}
+.ImageCard:hover .inforole{
+    opacity: 100%;
+}
+.ImageCard:hover .infoname{
+    opacity: 100%;
+}
+
+.portfolio{
+    width: calc(100% - 2rem);
+    margin: 0.5rem 1rem;
+    border-radius: 1.5rem;
+}
+
+.ImageCardBack{
+    box-shadow: 0 10px 15px rgba(52, 52, 52, 0.5);
+    margin: 0.5rem;
+    width: calc(100% - 1rem);
+    height: min(40vw, 20rem);
+    border-radius: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: 300ms;
+    cursor: pointer;
+}
+.ImagePictureBack{
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 300ms;
+    filter: blur(0px) brightness(30%);
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.ImageCardBackAnim:active{
+    transform: scale(0.95);
+}
+.ImageCardBack:hover .ImagePictureBackAnim{
+    filter: blur(10px) brightness(40%);
+    transform: scale(1.2);
+}
+.ImageCardBack:hover .infoForm{
+    transform: scale(1.05);
+}
+
+.infoForm{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    word-break: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(-45deg, #9f6adb, #6abddb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2rem;
+    line-height: 1.5;
+    letter-spacing: 0.05rem;
+    font-weight: 700;
+    height: 100%;
+    width: 100%;
+    transition: 300ms;
+}
+
+.formContainer{
+    position: absolute;
+    top: 40rem;
+    transition: 500ms;
+    max-width: 50rem;
+    width: calc(100% - 2rem);
+}
+.formItem{
+    background-color: rgba(255, 255, 255, 0.521);
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px rgb(0 0 0 / 20%);
+    backdrop-filter: blur(30px);
+    background-blend-mode: overlay;   
+
+    font-size: 1.5rem;
+    letter-spacing: 0.02rem;
+    color: #333333;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    margin: 1rem;
+    width: calc(100% - 4rem);
+}
+.formButton{
+    background-color: rgba(255, 255, 255, 0.521);
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px rgb(0 0 0 / 20%);
+    backdrop-filter: blur(30px);
+    background-blend-mode: overlay;   
+    width: min-content;
+
+    font-size: 1.5rem;
+    letter-spacing: 0.02rem;
+    color: #333333;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    margin: 1rem auto;
+
+    transition: 200ms;
+    cursor: pointer;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+input{
+    height: 2rem;
+    margin: 0.2rem;
+    border-radius: 0.6rem ;
+    background-color: white;
+    box-shadow: 0 10px 15px rgb(0 0 0 / 20%);
+    font-size: 1.5rem;
+    border: none;
+    outline: none;
+    padding: 0 0.5rem;
+    font-family: 'Lora', serif;
+    font-weight: 700;
+    max-width: calc(100% - 1.25rem);
+}
+textarea{
+    height: 2rem;
+    margin: 0.2rem;
+    border-radius: 0.6rem ;
+    background-color: white;
+    box-shadow: 0 10px 15px rgb(0 0 0 / 20%);
+    font-size: 1.5rem;
+    border: none;
+    outline: none;
+    font-family: 'Lora', serif;
+
+    resize: none;
+
+    width: calc(100% - 1rem);
+    max-width: none;
+    font-weight: 500;
+    height: 6rem;
+    margin: 1rem 0;
+    padding: 0.5rem;
+}
+footer{
+    width: 100%;
+    background-color: #333333d0;
+    border-radius: 2rem 2rem 0 0;
+
+    box-shadow: 0 10px 15px rgb(0 0 0 / 20%);
+    backdrop-filter: blur(30px);
+    background-blend-mode: overlay;   
+}
+.footerText{
+    color: white;
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 1.4rem;
+    padding: 1rem;
+    padding-bottom: 2rem;
+}
